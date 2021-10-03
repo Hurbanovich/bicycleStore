@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap reboot (для сброса стилей) -->
+<link rel="stylesheet" href="../css/libs/bootstrap-reboot.min.css">
+
+<!-- Bootstrap сетка -->
+<link rel="stylesheet" href="../css/libs/bootstrap-grid.min.css">
+
+<!-- Шрифты с Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet">
+
+<!-- Стили сайта -->
+<link rel="stylesheet" href="../css/style.css">
+
+
+<div th:fragment="header">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">KREVAstore</a>
+
+            <div class="navbar-wrab">
+                <ul class="navbar-menu">
+                    <li><a href="/product">Product</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Forum</a></li>
+                    <li><a href="#">New items</a></li>
+                </ul>
+                <a href="#" class="callback">CALLBACK</a>
+            </div>
+        </div>
+    </nav>
+</div>

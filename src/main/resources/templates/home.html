@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/libs/bootstrap-reboot.min.css"> <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="/style/libs/bootstrap-grid.min.css"> <!-- Bootstrap сетка -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">  <!-- Шрифты с Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">  <!-- Шрифты с Google Fonts -->
+    <link href="/style/style.css" rel="stylesheet">
+    <title>Title</title>
+
+</head>
+<body>
+<nav th:insert="blocks/header :: header"></nav>
+<header class="header">
+    <div class="container">
+        <div class="row">
+
+            <div CLASS="col-lg-8 offset-lg-2 header-content">
+                <h1>Купи совершенcтво не дорого!</h1>
+                <h4>Идеальный велосипед собран из наших запчастей</h4>
+                <form action="/product">
+                    <button CLASS="btn-main" type="submit">выбрать запчасти</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="overlay"></div>
+</header>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="product">
+                <div class="image">
+                    <img src="http://placehold.it/300x400" alt="">
+                </div>
+                <!--  ./image  -->
+                <div class="info">
+                    <h3>Название товара</h3>
+                    <!--  rating  -->
+                    <ul class="rating">
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star-half"></ion-icon>
+                        </li>
+                    </ul>
+                    <div class="info-price">
+                        <span class="prise">230 <small>p.</small></span>
+                        <button action="/product" class="add-to-cart">
+                            <ion-icon name="cart"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

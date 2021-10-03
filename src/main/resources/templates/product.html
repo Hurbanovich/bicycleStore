@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/libs/bootstrap-reboot.min.css"> <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="/style/libs/bootstrap-grid.min.css"> <!-- Bootstrap сетка -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">  <!-- Шрифты с Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">  <!-- Шрифты с Google Fonts -->
+    <link href="/style/style.css" rel="stylesheet">
+    <title> Product</title>
+
+</head>
+<body>
+<nav th:insert="blocks/header :: header"></nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3" th:each="el : ${produtList}">
+            <div class="product">
+                <div class="image">
+                    <img src="http://placehold.it/300x400" alt="">
+                </div>
+                <!--  ./image  -->
+                <div class="info">
+                    <h3 th:text="${el.name}"></h3>
+                    <!--  rating  -->
+                    <ul class="rating">
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star"></ion-icon>
+                        </li>
+                        <li>
+                            <ion-icon name="star-half"></ion-icon>
+                        </li>
+                    </ul>
+                    <div class="info-product">
+                        <span class="info-button"><a>Detail</a></span>
+                        <a class="detail-prodyct" th:href="'/product/' + ${el.id}">
+                            <ion-icon name="information-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="info-price">
+                        <span class="prise" th:text="${el.price} + ' '+ 'p.'"></span>
+                        <button class="add-to-cart">
+                            <ion-icon name="cart"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="contaiiher mt-5">-->
+<!--    <h1>product</h1>-->
+<!--    <div th:each="el : ${produtList}">-->
+<!--        <h3 th:text="${el.name}"></h3>-->
+<!--        <p th:text="${el.chapter}"></p>-->
+<!--        <p th:text="${el.comment}"></p>-->
+<!--        <p th:text="${el.price}"></p>-->
+<!--        <p th:text="${el.id}"></p>-->
+<!--        <p th:href="'/prod/' + ${el.id}">детальнее</p>-->
+
+<!--    </div>-->
+
+
+<!--</div>-->
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

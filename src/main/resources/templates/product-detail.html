@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/libs/bootstrap-reboot.min.css"> <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="/style/libs/bootstrap-grid.min.css"> <!-- Bootstrap сетка -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">  <!-- Шрифты с Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">  <!-- Шрифты с Google Fonts -->
+    <link href="/style/style.css" rel="stylesheet">
+    <title> Product</title>
+
+</head>
+<body>
+<nav th:insert="blocks/header :: header"></nav>
+<div class="container mt-5">
+    <div class="row">
+        <div th:each="el : ${product}" class="product-ditails ">
+            <h1 th:text="${product.chapter}"></h1>
+            <h2 th:text="${product.name}"></h2>
+            <div class="text-details">
+                <p th:text="${product.comment}"></p>
+                <p th:text="'дата поступления: ' + ${product.dateAddProduct}"></p>
+
+                <div class="prise-ditails">
+                    <span class="prise" th:text="${product.price} + ' '+ 'p.'"></span>
+                    <button class="add-to-cart">
+                        <ion-icon name="cart"></ion-icon>
+                    </button>
+                </div>
+                <div class="edit-delete">
+                    <ul class="navbar-menu">
+                        <li>
+                            <form th:action="'/product/' + ${product.id} + '/edit'" method="get">
+                                <button class="btn btn-warning">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd"
+                                              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                        edit
+                                    </svg>
+                                </button>
+                            </form>
+
+
+                            <!--                            <a th:href="'/product/'+ ${el.id} + '/edit'">-->
+                            <!--                            <ion-icon name="create-outline"></ion-icon>-->
+                            <!--                            </ion-icon></a>-->
+                        </li>
+                        <li>
+                            <form th:action="'/product/' + ${product.id} + '/remove'" method="post">
+                                <button class="btn btn-warning" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-trash" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd"
+                                              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        pemove
+                                    </svg>
+                                </button>
+                            </form>
+
+                            <!--                            <a th:href="'/product/'+ ${el.id} +'/remove'">-->
+                            <!--                            <ion-icon name="trash-outline"></ion-icon>-->
+                            <!--                        </a>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer th:insert="blocks/footer :: footer"></footer>
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

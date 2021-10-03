@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/libs/bootstrap-reboot.min.css"> <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="/style/libs/bootstrap-grid.min.css"> <!-- Bootstrap сетка -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">  <!-- Шрифты с Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">  <!-- Шрифты с Google Fonts -->
+    <link href="/style/style.css" rel="stylesheet">
+    <title> ProductAdd</title>
+</head>
+<body>
+<nav th:insert="blocks/header :: header"></nav>
+<div class="container mt-5">
+    <div class="row">
+        <h1>Добовление продукта</h1>
+        <div class="col-lg-3">
+
+            <form action="/product/add" method="post">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" class="form-control" required>
+                    <label for="name">name product</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" id="price" name="price" class="form-control" required>
+                    <label for="price">price</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="quantity" name="quantity" class="form-control" required>
+                    <label for="quantity">quantity</label>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="comment" name="comment" class="form-control" required></textarea>
+                    <label for="comment">comment</label>
+                </div>
+                <div class="form-group">
+                    <select name="chapter" required="required" class="form-control">
+                        <option value="">section</option>
+                        <option label="RIM">rim</option>
+                        <option value="SPOKES">spokes</option>
+                        <option value="NIPPLE">nipple</option>
+                        <option value="DROPOUT">dropout</option>
+                        <option value="CASSETTE">cassette</option>
+                        <option value="RATCHET">ratchet</option>
+                        <option value="DERAILLEUR">derailleur</option>
+                        <option value="FRONTDERAILLEUR">frontderailleur</option>
+                        <option value="CHAIN">chain</option>
+                        <option value="BONKI">bonki</option>
+                        <option value="CARRIAGE">carriage</option>
+                        <option value="CHAINCALMER">chaincalmer</option>
+                        <option value="PEDALS">pedals</option>
+                        <option value="CONNECTTINGRODS">connecttingrods</option>
+                        <option value="FRAME">fame</option>
+                        <option value="CABLE">cable</option>
+                        <option value="SHOCKABSORBER">chockabsorber</option>
+                        <option value="SEATPIN">droperidol</option>
+                        <option value="SADDLE">saddle</option>
+                        <option value="MANETTE">manette</option>
+                        <option value="GRIPS">grips</option>
+                        <option value="BRAKEHENDLE">brakehendle</option>
+                        <option value="BARENDA">barenda</option>
+                        <option value="HANDLEBAREXTENSION">handlebarextension</option>
+                        <option value="HANDLEBAR">handlebar</option>
+                        <option value="STEERINGCOLUMN">steeringcolumn</option>
+                        <option value="HYDRAULICLINE">hydrauline</option>
+                        <option value="ROTOR">rotor</option>
+                        <option value="CALIPER">caliper</option>
+                        <option value="AXLE">axle</option>
+                        <option value="ECCENTRIC">eccentric</option>
+                        <option value="BRAKEPADS">bracepads</option>
+                        <option value="REPAIRKIT">repairkit</option>
+                        <option value="ADAPTERS">adapters</option>
+                        <option value="TIRES">tires</option>
+                        <option value="FORK">fork</option>
+                        <option value="BEARING">bearing</option>
+                    </select>
+                </div>
+
+                <div class="text-center-">
+                    <button type="submit" class="btn-main"> add product</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
